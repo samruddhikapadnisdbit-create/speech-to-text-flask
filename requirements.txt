@@ -5,3 +5,4 @@ google-auth==2.34.0
 gunicorn==23.0.0
 gevent==24.2.1
 python-3.11.10
+eventlet
