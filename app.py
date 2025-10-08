@@ -1,3 +1,4 @@
+import os
 import flask
 from flask_sock import Sock
 from google.cloud import speech
@@ -6,10 +7,9 @@ import queue
 import threading
 
 # --- Load Google Cloud credentials ---
-creds = service_account.Credentials.from_service_account_file(
-    r"C:\Users\disha\Desktop\BE MAJOR PROJECT\speech_to_text_app\praxis-tensor-466907-v6-471b91a6d73c.json"
-)
-client = speech.SpeechClient(credentials=creds)
+# Recommended for Render: use environment variable GOOGLE_APPLICATION_CREDENTIALS
+# So no need to hardcode path
+client = speech.SpeechClient()
 
 # --- Flask app setup ---
 app = flask.Flask(__name__)
@@ -77,4 +77,6 @@ def audio(ws):
         ws.close()
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=5000, debug=True)
+    # Bind to dynamic port (Render sets PORT environment variable)
+    port = int(os.environ.get("PORT", 5000))
+    app.run(host="0.0.0.0", port=port)
