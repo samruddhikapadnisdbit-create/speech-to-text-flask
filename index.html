@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Speech to Text - Local Webpage</title>
+  <title>Speech to Text - Web App</title>
   <style>
     body { font-family: Arial; text-align: center; margin-top: 50px; }
     button { padding: 10px 20px; margin: 10px; font-size: 16px; }
@@ -18,7 +18,7 @@
   </style>
 </head>
 <body>
-  <h1>🎤 Speech to Text (Local Webpage)</h1>
+  <h1>🎤 Speech to Text (Web App)</h1>
   <button id="startBtn">Start</button>
   <button id="stopBtn">Stop</button>
   <div id="transcript">Transcript will appear here...</div>
@@ -32,17 +32,18 @@
       fullTranscript = "";
       document.getElementById("transcript").innerText = "Listening...";
 
-      socket = new WebSocket("ws://localhost:5000/audio");
+      // Dynamic WebSocket URL for HTTP/HTTPS
+      const protocol = window.location.protocol === "https:" ? "wss" : "ws";
+      socket = new WebSocket(`${protocol}://${window.location.host}/audio`);
 
       socket.onmessage = (event) => {
         const data = event.data;
 
         if (data.startsWith("[FINAL]")) {
-          fullTranscript += " " + data.replace("[FINAL]", "");
+          fullTranscript += data.replace("[FINAL]", "") + " ";
         } else if (data.startsWith("[INTERIM]")) {
-          // Show live updates without appending permanently
           document.getElementById("transcript").innerText =
-            fullTranscript + " " + data.replace("[INTERIM]", "");
+            fullTranscript + data.replace("[INTERIM]", "");
           return;
         }
 
@@ -65,7 +66,7 @@
         }
       };
 
-      // send audio chunks every 200ms
+      // Send audio chunks every 200ms
       mediaRecorder.start(200);
     };
 
@@ -76,3 +77,4 @@
   </script>
 </body>
 </html>
+
