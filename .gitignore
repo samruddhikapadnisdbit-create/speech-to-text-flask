@@ -1,0 +1,5 @@
+# Ignore service account keys and environment files
+*.json
+*.pyc
+__pycache__/
+.env
