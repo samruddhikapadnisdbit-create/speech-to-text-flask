@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Speech to Text - Local Webpage</title>
+  <style>
+    body { font-family: Arial; text-align: center; margin-top: 50px; }
+    button { padding: 10px 20px; margin: 10px; font-size: 16px; }
+    #transcript {
+      margin-top: 20px;
+      padding: 20px;
+      border: 1px solid #ccc;
+      width: 60%;
+      margin: 20px auto;
+      min-height: 100px;
+      white-space: pre-wrap;
+      text-align: left;
+    }
+  </style>
+</head>
+<body>
+  <h1>🎤 Speech to Text (Local Webpage)</h1>
+  <button id="startBtn">Start</button>
+  <button id="stopBtn">Stop</button>
+  <div id="transcript">Transcript will appear here...</div>
+
+  <script>
+    let mediaRecorder;
+    let socket;
+    let fullTranscript = "";
+
+    document.getElementById("startBtn").onclick = async () => {
+      fullTranscript = "";
+      document.getElementById("transcript").innerText = "Listening...";
+
+      socket = new WebSocket("ws://localhost:5000/audio");
+
+      socket.onmessage = (event) => {
+        const data = event.data;
+
+        if (data.startsWith("[FINAL]")) {
+          fullTranscript += " " + data.replace("[FINAL]", "");
+        } else if (data.startsWith("[INTERIM]")) {
+          // Show live updates without appending permanently
+          document.getElementById("transcript").innerText =
+            fullTranscript + " " + data.replace("[INTERIM]", "");
+          return;
+        }
+
+        document.getElementById("transcript").innerText = fullTranscript.trim();
+      };
+
+      socket.onclose = () => {
+        document.getElementById("transcript").innerText =
+          "✅ Final Transcript:\n" + fullTranscript.trim();
+      };
+
+      const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+      mediaRecorder = new MediaRecorder(stream, { mimeType: "audio/webm" });
+
+      mediaRecorder.ondataavailable = (event) => {
+        if (event.data.size > 0 && socket.readyState === WebSocket.OPEN) {
+          event.data.arrayBuffer().then(buffer => {
+            socket.send(buffer);
+          });
+        }
+      };
+
+      // send audio chunks every 200ms
+      mediaRecorder.start(200);
+    };
+
+    document.getElementById("stopBtn").onclick = () => {
+      if (mediaRecorder && mediaRecorder.state !== "inactive") mediaRecorder.stop();
+      if (socket && socket.readyState === WebSocket.OPEN) socket.close();
+    };
+  </script>
+</body>
+</html>
