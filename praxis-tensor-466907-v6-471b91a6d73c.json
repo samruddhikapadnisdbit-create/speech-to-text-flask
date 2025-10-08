@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "praxis-tensor-466907-v6",
+  "private_key_id": "471b91a6d73cd0d37fd56d00db687754c5c006ee",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCZNtwrCxrkIGPu\np8BikvKDf8XIyB3/530X5pIP4Ho48+EsMRGNTAd41YFfXuJCwpXwkQBxvymwI3sK\nqsq0eDlCLwhV/Q93EKeE52JxBclmcwF3mVZYAzHYK2BDBrZpZtoHe7/dkgyOJZ78\nT3QacZbvMu92X+YoC/eTI0cTklgA9F/jDpzqVkYV+b9NNPzvvkKjrOT6LCNR5swI\ntcsOYbpo3rUUkRE/5/dpVIseqf8wy7XKuqvCgBy5CaBE4BYBxmJ8QSeR5VDXKsaR\nkpG1R3/nuOHPl6+kqEbNiTPI5S5wenabiceHbJ8bRHCRKGhgNsr4fz8Hwj7eEO1W\nqnu/Sz4NAgMBAAECggEABxfzYxnJRbEbN1g0b8vqZvyyMUzUmL3EvKfL8Oi9d+gQ\nr41ZCO/xc5589iesNZeRPhlUii+l1DYcUv7b0jWzvvTy/5ovDl3qx5w34lA4hiIC\neiFTDlGdi+rcMtY7eU9N/mU0GaPSqX0j6n4aO8QxDwOOcy5W91kwffM27fjLUsXr\nUEMWBHhLLWMezSTcmg3fJTz4K0LGJun+Iid51UTIBQNhLEif6uCa9LTMVUi5S/NG\nAo6Nadpy1VMt4Ea9K9TfbktmidQHdhSrHcgvi6TIJM/fTQ9t5rVmnmA3ihae+cxL\nxl/SmXYTraXjHbsY2uhYJoLlG87yNVl7JEzDaEU14QKBgQDSZQYQfuBaDo/Q4t75\npJajNq2lPTsYscPHD7gvQlJNdDagUEGTesbGweWfZO9xv1wRwg6uFgoOyJ2fWWNh\nCbUVT0NQ2RyIkz0rhYZ/l3Kg3yQKeM199ZS56ICOkSBlTq4fMB9CPupjU2EON+Uh\neo6+6Yz4C5bv7bbQ+L7uaXjqoQKBgQC6bNn5RgmOqH5P1y5GX/mv/sdnX2FC16Pe\nopYhNTJkz2ppde05ruVtiwAOHtdr3sYaNWH60CPnhxWydZzFoExBCI7SYOg6WHYZ\nkHDH8tE9elpnw+czFeB/+9lB86W7aFnS8bQ4Wx5ZP8swmkCBrnuO3YXUmqzF2szw\ncxrjKGun7QKBgB0BVmuxwiZIOaV3kXvjJ+1KXXgZT+tgnnfz/9VsFEKfUeSaC+BU\nHdFK6+gklyocUooUMcfoO+y71ZchUKURHIjai5I6zEc73UQBvYAble79tE9JRjMm\nRyG2HvsIoOm2hiTAkp6kY9Xbqda29/y8k69YLVoI5v8ey4RVtqTRn5zhAoGAfkhC\nF3N0AejtN1RCCnX1A10I4mNf1RGR9bwZCoGok1VVdf7mJU7uJxgjf20w6+dKNnK2\n3lmkGLAO6IZ3HgAJ53vOk4AFj5Bg38xSOX+ocYayOtwffyFwpAGMF/rd52c2gYgt\nVoeStU5ba57x12bEV/CDOZNVOemPLcorCnlVA7kCgYAhUrkfgXDTHGae1JJhNnic\n3LBi5yMo82Abv63VGb4ExWbRFoU+RbCH7kVWRs5GpLY06cuQOF5vPtF6P5xSEgpj\npmTxip8POK3N00L744+y6WK3OgZ7lCdUsallbUKJuXRROStuTeGyCEsnc+vGlty+\nPKIXrrzkl8xQvCgm3tbsoA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "harshdusane@praxis-tensor-466907-v6.iam.gserviceaccount.com",
+  "client_id": "103157650591823671515",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/harshdusane%40praxis-tensor-466907-v6.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
